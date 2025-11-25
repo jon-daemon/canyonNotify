@@ -1,36 +1,23 @@
-from config import bike_map
-from config import log_level
-from time import sleep
+from config import bike_map, log_level
 import logging
 
 logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=log_level
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=log_level
 )
 
 logger = logging.getLogger(__name__)
 
-
-# Parse all bikes
 def update():
+    """Check all bikes and return True if any changed."""
     changed = False
     for bike in bike_map:
         changed |= bike.update()
-    logging.info(f'Status of the bikes was {("NOT changed","changed")[changed]}')
     return changed
 
-
-# Show the info about all bikes
 def status():
+    """Return string summary of all bikes."""
     output = ""
     for bike in bike_map:
-        output += f"{('NO','YES')[bike.avail]} - {bike.name} is {('UNavailable','available')[bike.avail]} in size {bike.size} \n"
+        output += f"{'YES' if bike.avail else 'NO'} - {bike.name}: {'available' if bike.avail else 'UNavailable'} in size {bike.size}\n"
     return output
-
-
-if __name__ == '__main__':
-    while True:
-        if update():
-            print(status())
-        else: 
-            print(".", end="")
-        sleep(60)

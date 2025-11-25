@@ -1,20 +1,27 @@
 import logging
 from bike import Bike
 
-token = "TOKEN"
-interval = 60
-log_level = logging.DEBUG
+# Logging
+log_level = logging.INFO
 
+# Interval in seconds
+interval = 120
+
+# Pushover credentials
+pushover_user_key = "PUSHOVER USER"
+pushover_api_token = "PUSHOVER TOKEN"
+
+# List of bikes to check
 bike_map = []
+# bike_map.append(
+#     Bike("Endurace Allroad Metal Berry",
+#         "https://www.canyon.com/en-gr/road-bikes/endurance-bikes/endurace/allroad/endurace-allroad/4164.html?dwvar_4164_pv_rahmenfarbe=R138_P02&dwvar_4164_pv_rahmengroesse=2XL",
+#         "2XL"
+#         )
+# )
 bike_map.append(
-    Bike("Grand_Canyon_5",
-        "https://www.canyon.com/en-no/mountain-bikes/trail-bikes/grand-canyon/grand-canyon-5/2613.html?dwvar_2613_pv_rahmenfarbe=BU%2FBK",
-        "M"
-        )
-)
-bike_map.append(
-    Bike("Neuron 7 black",
-         "https://www.canyon.com/en-no/mountain-bikes/trail-bikes/neuron/neuron-7/2627.html?dwvar_2627_pv_rahmenfarbe=BK%2FGY",
-         "L"
+    Bike("Endurace Allroad Metal Berry",
+         "https://www.canyon.com/en-gr/road-bikes/endurance-bikes/endurace/allroad/endurace-allroad/4164.html?dwvar_4164_pv_rahmenfarbe=R138_P02&dwvar_4164_pv_rahmengroesse=M",
+         "M"
          )
 )
